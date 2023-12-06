@@ -23,34 +23,38 @@ document.getElementById('file').onchange = function () {
                             idGame += number[car + 2];
                         }
                     }
-                    //console.log(idGame)
+                    
                 }
             }
 
             for (let car = 0; car < number.length; car++) {
                 if (getNumberColor('r', number, car) != null)
                 {
-                    red += parseInt(getNumberColor('r', number, car))
+                    if (red < parseInt(getNumberColor('r', number, car)))
+                    {
+                        red = parseInt(getNumberColor('r', number, car))
+                    }
                 }   
                 else if (getNumberColor('g', number, car) != null)
                 {
-                    green += parseInt(getNumberColor('g', number, car))
+                    if (green < parseInt(getNumberColor('g', number, car)))
+                    {
+                        green = parseInt(getNumberColor('g', number, car))
+                    }
                 }
                 else if (getNumberColor('b', number, car) != null)
                 {
-                    blue += parseInt(getNumberColor('b', number, car))
+                    if (blue < parseInt(getNumberColor('b', number, car)))
+                    {
+                        blue = parseInt(getNumberColor('b', number, car))
+                    }
                 }
             }
-            //console.log(red, green, blue)
-            if(red <= 12){
-                console.log("a")
-                console.log(idGame)
-                console.log(red, green, blue)
-            }
+            
             if (red <= 12 && green <= 13 && blue <= 14)
             {
-                // console.log("a")
-                // console.log(idGame)
+                console.log(idGame)
+                console.log(red, green, blue)
                 total += parseInt(idGame)
             }
        
